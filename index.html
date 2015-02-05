@@ -96,7 +96,7 @@
       	if (!!time && new Date(+time).getTime() > new Date().getTime())
       		return;
       	var imgUrl = "data/"; 
-      	imgUrl = imgUrl + !!time?getRelativeImagePath(time):"image.jpg?" + new Date().getTime();
+      	imgUrl = imgUrl + (!!time?getRelativeImagePath(time):"image.jpg?" + new Date().getTime());
       	setNavLinks(!!time?time:new Date());
       	document.getElementById('nowPic').setAttribute('src', imgUrl);	
       }
