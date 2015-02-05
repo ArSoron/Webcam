@@ -83,8 +83,15 @@
 			var nextMin = new Date(currTime);
 			var next = nextMin.setMinutes(nextMin.getMinutes() + 1);
 
+			if (new Date(+next).getTime() > new Date().getTime()){
+				document.getElementById('next').style.display = "none";
+			}
+			else {
+				document.getElementById('next').style.display = "";
+				document.getElementById('next').setAttribute('goto', next);
+			}
+
 			document.getElementById('prev').setAttribute('goto', prev);
-			document.getElementById('next').setAttribute('goto', next);
 			document.getElementById('curImg').innerHTML = getReadableTime(currTime);
 		}
 		
