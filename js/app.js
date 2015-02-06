@@ -11,16 +11,18 @@
     };
 
     
-    $("#navSlider").slider({
-        min: new Date().getTime() - 86400000,
-        max: new Date().getTime(),
-        value: new Date().getTime(),
-        slide: function( event, ui ) {
-            showImg(ui.value);
-            $( "#curImg" ).html( getReadableTime(ui.value) );
-        }
+    $( document ).ready(function() {
+        $("#navSlider").slider({
+            min: new Date().getTime() - 86400000,
+            max: new Date().getTime(),
+            value: new Date().getTime(),
+            slide: function( event, ui ) {
+                showImg(ui.value);
+                $( "#curImg" ).html( getReadableTime(ui.value) );
+            }
+        });
     });
-
+     
     window.onload = function () {
         setCurTime();
         setNavLinks(new Date());
