@@ -7,9 +7,23 @@
         curTime: document.getElementById("curTime"),
         realTime: document.getElementById("realTime"),
         curImg: document.getElementById("curImg"),
-        nowPic: document.getElementById("nowPic")
+        nowPic: document.getElementById("nowPic"),
+        navSlider: document.getElementById("navSlider")
     };
 
+    
+    $(function() {
+        $(_elements.navSlider).slider({
+            min: new Date().getTime() - 86400000,
+            max: new Date().getTime(),
+            value: new Date().getTime(),
+            slide: function( event, ui ) {
+                showImg(ui.value);
+                _elements.curTime.innerHTML = getReadableTime(ui.value);
+            }
+        });
+    });
+     
     window.onload = function () {
         setCurTime();
         setNavLinks(new Date());
