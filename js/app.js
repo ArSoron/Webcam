@@ -11,7 +11,7 @@
     };
 
     
-    $( document ).ready(function() {
+    $(function() {
         $("#navSlider").slider({
             min: new Date().getTime() - 86400000,
             max: new Date().getTime(),
