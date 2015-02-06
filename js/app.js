@@ -9,6 +9,7 @@
         curImg: document.getElementById("curImg"),
         nowPic: document.getElementById("nowPic")
     };
+
     
     $("#navSlider").slider({
         min: new Date().getTime() - 86400000,
@@ -102,7 +103,6 @@
             timer = undefined;
         }
     }
-    
     function realTimeStart() {
         timer = setInterval(function () {
             setCurTime();
