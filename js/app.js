@@ -6,7 +6,6 @@
         next: document.getElementById("next"),
         curTime: document.getElementById("curTime"),
         realTime: document.getElementById("realTime"),
-        curImg: document.getElementById("curImg"),
         nowPic: document.getElementById("nowPic"),
         navSlider: document.getElementById("navSlider")
     };
@@ -19,7 +18,6 @@
             value: new Date().getTime(),
             slide: function( event, ui ) {
                 showImg(ui.value);
-                _elements.curTime.innerHTML = getReadableTime(ui.value);
             }
         });
     });
@@ -88,7 +86,7 @@
         }
 
         _elements.prev.setAttribute("goto", prev);
-        _elements.curImg.innerHTML = getReadableTime(currTime);
+        _elements.curTime.innerHTML = getReadableTime(currTime);
     }
 
     function showImg(time) {
