@@ -1,20 +1,30 @@
 (function () {
     var timer;
+
+    var _elements = {
+        prev: document.getElementById("prev"),
+        next: document.getElementById("next"),
+        curTime: document.getElementById("curTime"),
+        realTime: document.getElementById("realTime"),
+        curImg: document.getElementById("curImg"),
+        nowPic: document.getElementById("nowPic")
+    };
+
     window.onload = function () {
         setCurTime();
         setNavLinks(new Date());
 
-        document.getElementById('prev').onclick = function () {
-            showImg(this.getAttribute('goto'));
+        _elements.prev.onclick = function () {
+            showImg(this.getAttribute("goto"));
         };
-        document.getElementById('next').onclick = function () {
-            showImg(this.getAttribute('goto'));
+        _elements.next.onclick = function () {
+            showImg(this.getAttribute("goto"));
         };
-        document.getElementById('curTime').onclick = function () {
+        _elements.curTime.onclick = function () {
             setCurTime();
             showImg();
         };
-        document.getElementById('realTime').onclick = function (cb) {
+        _elements.realTime.onclick = function (cb) {
             if (cb.currentTarget.checked) {
                 realTimeStart();
             } else {
@@ -25,7 +35,7 @@
 
     function setCurTime() {
         var ldNow = new Date();
-        document.getElementById('curTime').innerHTML = getReadableTime(ldNow);
+        _elements.curTime.innerHTML = getReadableTime(ldNow);
     }
 
     /* adds 0 before the number, untill it has correct length*/
@@ -56,15 +66,15 @@
         var next = nextMin.setMinutes(nextMin.getMinutes() + 1);
 
         if (new Date(+next).getTime() > new Date().getTime()) {
-            document.getElementById('next').style.display = "none";
+            _elements.next.style.display = "none";
         }
         else {
-            document.getElementById('next').style.display = "";
-            document.getElementById('next').setAttribute('goto', next);
+            _elements.next.style.display = "";
+            _elements.next.setAttribute("goto", next);
         }
 
-        document.getElementById('prev').setAttribute('goto', prev);
-        document.getElementById('curImg').innerHTML = getReadableTime(currTime);
+        _elements.prev.setAttribute("goto", prev);
+        _elements.curImg.innerHTML = getReadableTime(currTime);
     }
 
     function showImg(time) {
@@ -73,7 +83,7 @@
         var imgUrl = "data/";
         imgUrl = imgUrl + (!!time ? getRelativeImagePath(time) : "image.jpg?" + new Date().getTime());
         setNavLinks(!!time ? time : new Date());
-        document.getElementById('nowPic').setAttribute('src', imgUrl);
+        _elements.nowPic.setAttribute("src", imgUrl);
     }
 
     function realTimeStop() {
