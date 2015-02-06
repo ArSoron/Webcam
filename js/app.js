@@ -9,6 +9,16 @@
         curImg: document.getElementById("curImg"),
         nowPic: document.getElementById("nowPic")
     };
+    
+    $("#navSlider").slider({
+        min: new Date(new Date().getDate() - 1).getTime(),
+        max: new Date().getTime(),
+        value: new Date().getTime(),
+        slide: function( event, ui ) {
+            showImg(ui.value);
+            $( "#curImg" ).html( ui.value );
+        }
+    });
 
     window.onload = function () {
         setCurTime();
@@ -92,6 +102,7 @@
             timer = undefined;
         }
     }
+    
     function realTimeStart() {
         timer = setInterval(function () {
             setCurTime();
