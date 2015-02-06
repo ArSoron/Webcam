@@ -80,7 +80,7 @@
     function showImg(time) {
         if (!!time && new Date(+time).getTime() > new Date().getTime())
             return;
-        var imgUrl = "../data/";
+        var imgUrl = "data/";
         imgUrl = imgUrl + (!!time ? getRelativeImagePath(time) : "image.jpg?" + new Date().getTime());
         setNavLinks(!!time ? time : new Date());
         _elements.nowPic.setAttribute("src", imgUrl);
