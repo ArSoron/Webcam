@@ -8,7 +8,7 @@
         realTime: document.getElementById("realTime"),
         nowPic: document.getElementById("nowPic"),
         navSlider: document.getElementById("navSlider"),
-        myTime: document.getElementById("myTime")
+        myTime: document.getElementById("myTimeSelect")
     };
 
     
@@ -39,7 +39,7 @@
         };
         _elements.myTime.onclick = function () {
             var today = new Date();
-            var mt = $("#mt").val().split(':');
+            var mt = $("#mt").val().split('-');
             var myTime = today.setHours(mt[0], mt[1], 0, 0);
             showImg(myTime);
         };
