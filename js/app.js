@@ -39,7 +39,7 @@
         };
         _elements.myTime.onclick = function () {
             var today = new Date();
-            var mt = $("#mt").val().split('-');
+            var mt = $("#myTime").val().split('-');
             var myTime = today.setHours(mt[0], mt[1], 0, 0);
             showImg(myTime);
         };
