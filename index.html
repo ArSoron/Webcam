@@ -25,8 +25,11 @@
 				col-md-2 col-md-offset-2
 				col-sm-2 col-sm-offset-2
 				col-xs-4 text-center link">
-				<span id="curTime"></span>
-				<br /><input id="myTime" placeholder="16-00"></input><span id="myTimeSelect" class="btn">Set</span>
+				<input id="curTime" placeholder="16-00" class="form-control"></input>
+				<div class="btn-group" role="group" aria-label="...">
+				  <button id="timeSet" type="button" class="btn btn-default">Go</button>
+				  <button id="nowSet" type="button" class="btn btn-default">Now</button>
+				</div>
 			</div>
 			<!--span id="curImg" class="curr"></span-->
 			<div class="col-lg-2 col-lg-offset-1
